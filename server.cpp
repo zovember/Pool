@@ -1,14 +1,11 @@
 /* Michael Kochura */
 
-//#define CPPHTTPLIB_OPENSSL_SUPPORT
 #include "Pool.cpp"
 #include "httplib.h"
 #include <iostream>
 
 int main() {
     httplib::Server server;
-    //httplib::SSLServer svr("cert.pem", "key.pem");
-
     Pool pool(/*tokens*/ 5000, /*dollars*/ 10000);
 
     server.Get("/", [&pool](const httplib::Request &, httplib::Response &res) {
